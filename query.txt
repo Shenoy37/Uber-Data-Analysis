@@ -1,0 +1,15 @@
+SELECT trip.trip_distance_id,pt.payment_id
+FROM `uber-data-analysis-418718.uber_dataengineering_query.fact_table`  f
+
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.datetime_dim`  dt  
+on f.datetime_id =dt.datetime_id
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.drop_location_dim` 
+dl on f.drop_location_id=dl.drop_location_id
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.passenger_count_dim`  pc on f.passenger_count_id=pc.passenger_count_id
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.payment_dim`  pt 
+on f.payment_id=pt.payment_id
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.pickup_location_dim`  pl on f.pickup_location_id=pl.pickup_location_id
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.ratecode_dim` rc 
+on f.ratecode_id=rc.ratecode_id
+JOIN `uber-data-analysis-418718.uber_dataengineering_query.trip_distance_dim`  trip 
+on f.trip_distance_id=trip.trip_distance_id
